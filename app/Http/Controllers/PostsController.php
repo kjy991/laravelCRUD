@@ -2,76 +2,69 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Post;
+use App\Models\PostModel;
 
 use Illuminate\Http\Request;
 
 class PostsController extends Controller{
     
-    public function index(){
+    public function list(){
 
-        $posts = Post::all();
+        $values = PostModel::all();
 
-        return view('posts.index', ['posts' => $posts] );
-    }
-
-
-    public function edit(Post $post){
-        
-        return view('posts.edit', ['post' => $post]); 
-
-
+        return view('list', ['values' => $values] );
     }
 
     public function create(){
 
-        return view('posts.create');
+        return view('create');
 
     }
-
+ 
     public function store( ){
 
         request()->validate([
-                'title' => 'required',
-                
-                'content' => 'required',
-
+            'name' => 'required',
+            'content' => 'required',
         ]);
 
-        Post::create([
-            'title' => request('title'),
-
+        PostModel::create([
+            'name' => request('name'),
             'content' => request('content'),
         ]);
 
-        return redirect('/posts');
+        return redirect('/');
 
     }
 
 
-    public function update(Post $post){
+
+    public function show(PostModel $value){
         
+        return view('show', ['value' => $value]); 
+
+    }
+
+    public function update(PostModel $value){
         request()->validate([
-                'title' => 'required',
-                
-                'content' => 'required',
-
+            'name' => 'required',
+            'content' => 'required',
         ]);
 
-        $post->update([
-            'title' => request('title'),
-
+        $value->update([
+            'name' => request('name'),
             'content' => request('content'),
         ]);
+        
 
-        return redirect('/posts');
+        return redirect('/');
     }
 
-    public function destroy(Post $post){
+    public function delete(PostModel $value){
         
-        $post->dlete();
+        $value->delete();
 
-        return redirect('/posts');
+        return redirect('/');
 
     }
 

@@ -17,19 +17,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
  
-Route::get('/posts' , [PostsController::class,'index']);
+Route::get('/' , [PostsController::class,'list']);
 
-Route::post('/posts' , [PostsController::class,'store']);
+Route::post('/' , [PostsController::class,'store']);
+Route::get('/create' , [PostsController::class,'create']);
 
-Route::get('/posts/create' , [PostsController::class,'create']);
+Route::get('/show/{value}' , [PostsController::class, 'show']);
+Route::put('/{value}', [PostsController::class, 'update']);
 
-Route::get('/posts/{post}/edit' , [PostsController::class, 'edit']);
-
-Route::put('/posts/{post}', [PostsController::class, 'update']);
-
-Route::delete('/posts/{post}', [PostsController::class, 'destroy']);
+Route::delete('/{value}', [PostsController::class, 'delete']);
