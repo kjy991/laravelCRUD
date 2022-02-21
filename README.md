@@ -1,3 +1,13 @@
+### 개발환경 
+1. laravel : 4.2.10
+
+2. Laravel Valet 2.18.9 (m1 mac 환경에서 virtualbox 설치 및 문제점으로 homestead 대신 valet를 사용함)
+
+3. php : 8.1.3
+
+
+
+
 #### 기술과제 
 1. Homestead를 이용해 라라벨 프레임 워크를 설치, 로컬에 개발환경 구축
 
