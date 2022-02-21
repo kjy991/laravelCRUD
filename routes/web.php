@@ -30,4 +30,4 @@ Route::get('/create' , [PostsController::class,'create']);
 Route::get('/show/{value}' , [PostsController::class, 'show']);
 Route::put('/{value}', [PostsController::class, 'update']);
 
-Route::delete('/{value}', [PostsController::class, 'delete']);
+Route::delete('/{value}', [PostsController::class, 'destroy']);

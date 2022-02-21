@@ -60,7 +60,7 @@ class PostsController extends Controller{
         return redirect('/');
     }
 
-    public function delete(PostModel $value){
+    public function destroy(PostModel $value){
         
         $value->delete();
 
